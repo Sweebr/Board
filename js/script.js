@@ -16,13 +16,19 @@ $(document).foundation();
     elem.removeAttr( 'class' );
 
     // Find current active icon
-    var currentIndex = icons.indexOf( currentClass );
-    if( (currentIndex+1) > (icons.length-1) ) {
-      elem.addClass( icons[0] );
+    privates.pickClass(currentClass, icons, elem);
+  };
+
+  // Pick the next class in this list
+  pickClass = function pickClass(currentClass, list, elem) {
+    elem.removeAttr( 'class' );
+    var currentIndex = list.indexOf( currentClass );
+    if( (currentIndex+1) > (list.length-1) ) {
+      elem.addClass( list[0] );
     }
     else {
-      elem.addClass( icons[(currentIndex+1)] );
-    }
+      elem.addClass( list[(currentIndex+1)] );
+    };
   };
 
   return privates;
