@@ -7,8 +7,8 @@ var App = (function(window, body, privates, undefined) {
   privates.generateNumber = function() {
     var newId;
     if( localStorage.getItem( 'number' ) ) {
-      newId = 'task:' + (localStorage.getItem( 'number' )+1);
-      localStorage.setItem( 'number', (localStorage.getItem( 'number' )+1) );
+      newId = 'task:' + (parseInt(localStorage.getItem( 'number' ))+1);
+      localStorage.setItem( 'number', (parseInt(localStorage.getItem( 'number' ))+1) );
     }
     else {
       newId = 'task:0';
