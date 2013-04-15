@@ -5,7 +5,15 @@ var App = (function(window, body, privates, undefined) {
 
   // Get unique number for this row
   privates.generateNumber = function() {
-    var newId = 'task:' + Object.keys(localStorage).length;
+    var newId;
+    if( localStorage.getItem( 'number' ) ) {
+      newId = 'task:' + (localStorage.getItem( 'number' )+1);
+      localStorage.setItem( 'number', (localStorage.getItem( 'number' )+1) );
+    }
+    else {
+      newId = 'task:0';
+      localStorage.setItem( 'number', 0 );
+    }
     localStorage.setItem( newId, JSON.stringify({ 'text': '', 'date': '', 'icon': 'check-empty', 'avatar': 'rene' }) );
     return newId;
   };
@@ -23,7 +31,7 @@ var App = (function(window, body, privates, undefined) {
 
   // Remove a current row
   privates.delete = function(id) {
-    $( '#' + id ).remove();
+    $( 'div[id="' + id + '"]' ).remove();
     localStorage.removeItem( id );
   };
 
@@ -39,6 +47,8 @@ var App = (function(window, body, privates, undefined) {
   // Read localStorage
   privates.read = function() {
     Object.keys(localStorage).forEach(function(keyName){
+      if( keyName == 'number' ) return;
+      
       var item = JSON.parse(localStorage.getItem( keyName ))
         , elem = privates.create(keyName);
 
