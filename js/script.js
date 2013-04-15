@@ -54,10 +54,23 @@ var App = (function(window, body, privates, undefined) {
     return privates;
   };
 
+  // Update text / date
+  privates.updateText = function() {
+    var elem = $(this).find( 'input' );
+    privates.updateItem( elem, 'text', elem.val() ); 
+  };
+  privates.updateDate = function() {
+    var elem = $(this).find( 'input' );
+    privates.updateItem( elem, 'date', elem.val().toUpperCase() ); 
+    elem.val( elem.val().toUpperCase() );
+  };
+
   // Attach events
   privates.attach = function attach() {
     body.on( 'click', '.icon.columns', privates.pickIcon );
     body.on( 'click', '.assignee.columns', privates.pickAvatar );
+    body.on( 'keyup', '.name.columns', privates.updateText );
+    body.on( 'keyup', '.date.columns', privates.updateDate );
   };
 
   // Pick avatar from the list
