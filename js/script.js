@@ -1,11 +1,13 @@
 $(document).foundation();
 
-(function(window, body, privates, undefined) {
+var App = (function(window, body, privates, undefined) {
   var icons, colors, assignees;
 
   // Get unique number for this row
   privates.generateNumber = function() {
-    return 'task:' + Object.keys(localStorage).length;
+    var newId = 'task:' + Object.keys(localStorage).length;
+    localStorage.setItem( newId, JSON.stringify({ 'text': '', 'date': '', 'icon': 'check-empty', 'avatar': 'rene' }) );
+    return newId;
   };
   privates.findNumber = function(elem) {
     return elem.closest( '.row.item' ).attr( 'id' );
@@ -14,15 +16,16 @@ $(document).foundation();
     var id = privates.findNumber(elem);
 
     // Get localStorage item
-    var currentLocalItem = localStorage.getItem( id );
+    var currentLocalItem = JSON.parse(localStorage.getItem( id ));
     currentLocalItem[( type )] = item;
-    localStorage.setItem( id, currentLocalItem );
+    localStorage.setItem( id, JSON.stringify(currentLocalItem) );
   };
 
   // Create a new row
-  privates.create = function() {
+  privates.create = function(id) {
     var example = body.find( '.row.item.clone' ).clone();
-    example.attr( 'id', privates.generateNumber() );
+    example.removeClass( 'clone' );
+    example.attr( 'id', ( id || privates.generateNumber() ) );
     example.appendTo( 'body' );
     return example;
   };
@@ -30,8 +33,8 @@ $(document).foundation();
   // Read localStorage
   privates.read = function() {
     Object.keys(localStorage).forEach(function(keyName){
-      var item = localStorage.getItem( keyName )
-        , elem = privates.create();
+      var item = JSON.parse(localStorage.getItem( keyName ))
+        , elem = privates.create(keyName);
 
       // Update inputs
       elem.find( '.name.columns input' ).val( item.text );
@@ -39,9 +42,10 @@ $(document).foundation();
 
       // Update icon
       privates.pickIcon.apply(elem.find( '.icon.columns' ), [item.icon]);
-      privates.pickAvatar.apply(elem.find( '.icon.columns' ), [item.avatar]);
+      privates.pickAvatar.apply(elem.find( '.assignee.columns' ), [item.avatar]);
     });
     privates.attach();
+    return privates;
   };
 
   // Attach events
