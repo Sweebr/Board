@@ -1,11 +1,24 @@
 $(document).foundation();
 
 (function(window, body, privates, undefined) {
-  var icons, colors;
+  var icons, colors, assignees;
 
   // Attach events
   privates.attach = function attach() {
     body.on( 'click', '.icon.columns', privates.pickIcon );
+    body.on( 'click', '.assignee.columns', privates.pickAvatar );
+  };
+
+  // Pick avatar from the list
+  assignees = [ 'chase', 'rene' ];
+  privates.pickAvatar = function pickAvatar() {
+    var elem = $(this).find( 'span' ) 
+      , currentClass = elem.attr( 'class' ).replace( 'avatar ', '' );
+
+    // Find current active icon
+    privates.pickClass(currentClass, assignees, elem, function(elem, list, index){
+      elem.addClass( 'avatar ' + list[( index )] );
+    });
   };
 
   // Pick icons from the list
@@ -14,7 +27,6 @@ $(document).foundation();
   privates.pickIcon = function pickIcon() {
     var elem = $(this).find( 'span' ) 
       , currentClass = elem.attr( 'class' ).substr(5);
-    elem.removeAttr( 'class' );
 
     // Find current active icon
     privates.pickClass(currentClass, icons, elem, function(elem, list, index){
