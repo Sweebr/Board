@@ -28,7 +28,12 @@
 				        <section class="top-bar-section">
 							<ul class="right">
 								<li>
-									<a href="#" id="weeknumber">Week #</a>
+									<a href="#" data-reveal-id="legend">
+										<span class="icon-reorder"></span>
+									</a>
+								</li>
+								<li class="has-form">
+									<a href="#" id="weeknumber"><input type="text" /></a>
 								</li>
 							</ul>
 				        </section>
@@ -47,7 +52,7 @@
 						<input type="text" />
 					</div>
 					<div class="large-3 small-3 date columns">
-						<input type="date" />
+						<input type="text" />
 					</div>
 					<div class="large-1 small-1 assignee columns">
 						<img src="http://www.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10.png" height="30" width="30" />
@@ -66,7 +71,7 @@
 						<input type="text" />
 					</div>
 					<div class="large-3 small-3 date columns">
-						<input type="date" />
+						<input type="text" />
 					</div>
 					<div class="large-1 small-1 assignee columns">
 						<img src="http://www.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10.png" height="30" width="30" />
@@ -85,7 +90,7 @@
 						<input type="text" />
 					</div>
 					<div class="large-3 small-3 date columns">
-						<input type="date" />
+						<input type="text" />
 					</div>
 					<div class="large-1 small-1 assignee columns">
 						<img src="http://www.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10.png" height="30" width="30" />
@@ -104,7 +109,7 @@
 						<input type="text" />
 					</div>
 					<div class="large-3 small-3 date columns">
-						<input type="date" />
+						<input type="text" />
 					</div>
 					<div class="large-1 small-1 assignee columns">
 						<img src="http://www.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10.png" height="30" width="30" />
@@ -123,7 +128,7 @@
 						<input type="text" />
 					</div>
 					<div class="large-3 small-3 date columns">
-						<input type="date" />
+						<input type="text" />
 					</div>
 					<div class="large-1 small-1 assignee columns">
 						<img src="http://www.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10.png" height="30" width="30" />
@@ -142,7 +147,7 @@
 						<input type="text" />
 					</div>
 					<div class="large-3 small-3 date columns">
-						<input type="date" />
+						<input type="text" />
 					</div>
 					<div class="large-1 small-1 assignee columns">
 						<img src="http://www.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10.png" height="30" width="30" />
@@ -151,11 +156,68 @@
 			</div>
 		</div>
 
-		<script>
-			document.write('<script src=js/vendor/' +
-			('__proto__' in {} ? 'zepto' : 'jquery') +
-			'.js><\/script>')
-		</script>
+		<div id="legend" class="reveal-modal">
+			<table>
+				<thead>
+					<tr>
+						<th width="10%">Icon</th>
+						<th width="90">Function</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span class="icon-check-empty"></span>
+						</td>
+						<td>
+							Needs testing
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="icon-refresh"></span>
+						</td>
+						<td>
+							Currently in progress
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="icon-group"></span>
+						</td>
+						<td>
+							Needs testing
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="icon-check"></span>
+						</td>
+						<td>
+							Done
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="icon-ban-circle"></span>
+						</td>
+						<td>
+							Blocked
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="icon-time"></span>
+						</td>
+						<td>
+							On schedule
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script src="js/vendor/jquery.js"></script>
 		<script src="js/vendor/foundation.min.js"></script>
 		<script src="js/script.js"></script>
 	</body>

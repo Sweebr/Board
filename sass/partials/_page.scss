@@ -8,21 +8,72 @@
 	
 	&.blue {
 		background: rgb(195, 231, 248);
+		
+		input {
+			color: #444;
+		}
 	}
 	&.white {
 		background: rgb(255,255,255);
+		
+		input {
+			color: #444;
+		}
 	}
 	&.orange {
 		background: rgb(255, 215, 140);
+		
+		input {
+			color: #444;
+		}
 	}
 	&.yellow {
 		background: rgb(255, 255, 165);
+		
+		input {
+			color: #444;
+		}
 	}
 	&.red {
 		background: rgb(255, 95, 95);
+		
+		input {
+			color: #444;
+		}
 	}
 	&.gray {
 		background: rgb(214, 214, 214);
+		
+		input {
+			color: #444;
+		}
+	}
+
+	input {
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		
+		&:focus {
+			background: white;
+			border: 1px solid #cccccc;
+			box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+			color: rgba(0, 0, 0, 0.75);
+			transition: all 0.15s linear;
+		}
+	}
+}
+
+#weeknumber {	
+	input {
+		margin-top: -3px;
+		color: white;
+		font-size: 17px;
+		text-align: right;
+		
+		&:focus {
+			color: #444;
+		}
 	}
 }
 
