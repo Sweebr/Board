@@ -21,6 +21,12 @@ var App = (function(window, body, privates, undefined) {
     localStorage.setItem( id, JSON.stringify(currentLocalItem) );
   };
 
+  // Remove a current row
+  privates.delete = function(id) {
+    $( '#' + id ).remove();
+    localStorage.removeItem( id );
+  };
+
   // Create a new row
   privates.create = function(id) {
     var example = body.find( '.row.item.clone' ).clone();
