@@ -83,7 +83,7 @@ var App = (function(window, body, privates, undefined) {
     body.on( 'keyup', '.date.columns', privates.updateDate );
     body.on( 'click', '.item-trash', function() {
       var id = $(this).parent().parent().parent().parent().attr( 'id' );
-      
+
       $( 'div[id="' + id + '"]' ).remove();
       localStorage.removeItem( id );
     })
@@ -93,7 +93,7 @@ var App = (function(window, body, privates, undefined) {
   assignees = [ 'chase', 'rene' ];
   privates.pickAvatar = function pickAvatar(currentItem) {
     var elem = $(this)
-      , currentClass = elem.attr( 'class' ).replace( 'avatar ', '' )
+      , currentClass = elem.attr( 'class' ).replace( 'avatar left ', '' )
       , picker = function(elem, list, index){
           // Update localStorage
           privates.updateItem( elem, 'avatar', list[( index )] );
