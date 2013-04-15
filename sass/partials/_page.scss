@@ -1,0 +1,33 @@
+.row {
+	max-width: 100%;
+	width: 100%;
+	
+	&.item {
+		padding: 15px 0 0;
+	}
+	
+	&.blue {
+		background: rgb(195, 231, 248);
+	}
+	&.white {
+		background: rgb(255,255,255);
+	}
+	&.orange {
+		background: rgb(255, 215, 140);
+	}
+	&.yellow {
+		background: rgb(255, 255, 165);
+	}
+	&.red {
+		background: rgb(255, 95, 95);
+	}
+	&.gray {
+		background: rgb(214, 214, 214);
+	}
+}
+
+.icon span {
+	margin: 7px auto 0;
+	display: block;
+	width: 0.25em;
+}
