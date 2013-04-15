@@ -58,7 +58,7 @@ var App = (function(window, body, privates, undefined) {
 
       // Update icon
       privates.pickIcon.apply(elem.find( '.icon.columns' ), [item.icon]);
-      privates.pickAvatar.apply(elem.find( '.assignee.columns' ), [item.avatar]);
+      privates.pickAvatar.apply(elem.find( '.avatar' ), [item.avatar]);
     });
     privates.attach();
     return privates;
@@ -78,22 +78,28 @@ var App = (function(window, body, privates, undefined) {
   // Attach events
   privates.attach = function attach() {
     body.on( 'click', '.icon.columns', privates.pickIcon );
-    body.on( 'click', '.assignee.columns', privates.pickAvatar );
+    body.on( 'click', '.avatar', privates.pickAvatar );
     body.on( 'keyup', '.name.columns', privates.updateText );
     body.on( 'keyup', '.date.columns', privates.updateDate );
+    body.on( 'click', '.item-trash', function() {
+      var id = $(this).parent().parent().parent().parent().attr( 'id' );
+      
+      $( 'div[id="' + id + '"]' ).remove();
+      localStorage.removeItem( id );
+    })
   };
 
   // Pick avatar from the list
   assignees = [ 'chase', 'rene' ];
   privates.pickAvatar = function pickAvatar(currentItem) {
-    var elem = $(this).find( 'span' ) 
+    var elem = $(this)
       , currentClass = elem.attr( 'class' ).replace( 'avatar ', '' )
       , picker = function(elem, list, index){
           // Update localStorage
           privates.updateItem( elem, 'avatar', list[( index )] );
 
           // Update local class
-          elem.addClass( 'avatar ' + list[( index )] );
+          elem.addClass( 'avatar left ' + list[( index )] );
         };
 
     // Overwrite current class
