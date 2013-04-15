@@ -17,3 +17,6 @@ javascripts_dir = "js"
 # line_comments = false
 
 preferred_syntax = :sass
+
+output_style = :compressed # by Compass.app 
+line_comments = false # by Compass.app 
