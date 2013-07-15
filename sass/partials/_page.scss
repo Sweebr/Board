@@ -4,7 +4,7 @@
 .row {
 	max-width: 100%;
 	width: 100%;
-	
+
 	&.control {
 		padding: 10px 0;
 		font-size: 20px;
@@ -13,7 +13,7 @@
 	.row {
 		margin-left: auto;
 		margin-right: auto;
-		
+
 		.columns, .column {
 			height: 50px;
 			padding-top: 10px;
@@ -24,52 +24,52 @@
 			user-select: none;
 		}
 	}
-	
+
 	&.blue {
 		background: rgb(195, 231, 248);
-		
+
 		input {
 			color: #444;
 		}
 	}
 	&.white {
 		background: rgb(255,255,255);
-		
+
 		input {
 			color: #444;
 		}
 	}
 	&.orange {
 		background: rgb(255, 215, 140);
-		
+
 		input {
 			color: #444;
 		}
 	}
 	&.yellow {
 		background: rgb(255, 255, 165);
-		
+
 		input {
 			color: #444;
 		}
 	}
 	&.green {
 		background: #C3FA88;
-		
+
 		input {
 			color: #444;
 		}
 	}
 	&.red {
 		background: rgb(255, 95, 95);
-		
+
 		input {
 			color: #444;
 		}
 	}
 	&.gray {
 		background: rgb(214, 214, 214);
-		
+
 		input {
 			color: #444;
 		}
@@ -79,7 +79,7 @@
 		background: transparent;
 		border: none;
 		box-shadow: none;
-		
+
 		&:focus {
 			background: white;
 			border: 1px solid #cccccc;
@@ -90,14 +90,14 @@
 	}
 }
 
-#weeknumber {	
+#weeknumber {
 	input {
 		margin-top: -3px;
 		color: white;
 		font-size: 17px;
 		text-align: right;
 		width: 90px;
-		
+
 		&:focus {
 			color: #444;
 		}
@@ -114,16 +114,38 @@
 	height: 30px;
 	width: 30px;
 	display: block;
-	
+  background-size: 30px 30px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+
 	&.rene {
-		background: transparent url( 'https://secure.gravatar.com/avatar/bb90f988f9dd008698e34233227ca12d?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' ) no-repeat 0 0;
-		background-size: 30px 30px;
+		background-image: url( 'https://secure.gravatar.com/avatar/bb90f988f9dd008698e34233227ca12d?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' );
 	}
 
 	&.chase {
-		background: transparent url( 'https://secure.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' ) no-repeat 0 0;
-		background-size: 30px 30px;
+		background-image: url( 'https://secure.gravatar.com/avatar/2c24e6b57baa13b1e4b9c0fc83512b10?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' );
 	}
+
+  &.raymond {
+    background-image: url( 'https://secure.gravatar.com/avatar/e3b31c575eed0d167f9cd417bf711017?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' );
+  }
+
+  &.bram {
+    background-image: url( 'https://secure.gravatar.com/avatar/046e909eaeba27852134b6e5118d39c2?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' );
+  }
+
+  &.koen {
+    background-image: url( 'https://si0.twimg.com/profile_images/2304930026/xe3nxytjp3989vdwhfwb.png' );
+  }
+
+  &.remy {
+    background-image: url( 'https://secure.gravatar.com/avatar/d0e61a04e57a9ab6c0df803c3c599c2f?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png' );
+  }
+
+  &.bart {
+    background-image: url( 'http://goedezaken.nu/wp-content/themes/goedezaken/images/Bart%20Jaspers2.JPG' );
+  }
 }
 
 h1 em {

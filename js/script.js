@@ -48,7 +48,7 @@ var App = (function(window, body, privates, undefined) {
   privates.read = function() {
     Object.keys(localStorage).forEach(function(keyName){
       if( keyName == 'number' ) return;
-      
+
       var item = JSON.parse(localStorage.getItem( keyName ))
         , elem = privates.create(keyName);
 
@@ -67,11 +67,11 @@ var App = (function(window, body, privates, undefined) {
   // Update text / date
   privates.updateText = function() {
     var elem = $(this).find( 'input' );
-    privates.updateItem( elem, 'text', elem.val() ); 
+    privates.updateItem( elem, 'text', elem.val() );
   };
   privates.updateDate = function() {
     var elem = $(this).find( 'input' );
-    privates.updateItem( elem, 'date', elem.val().toUpperCase() ); 
+    privates.updateItem( elem, 'date', elem.val().toUpperCase() );
     elem.val( elem.val().toUpperCase() );
   };
 
@@ -90,7 +90,7 @@ var App = (function(window, body, privates, undefined) {
   };
 
   // Pick avatar from the list
-  assignees = [ 'chase', 'rene' ];
+  assignees = [ 'chase', 'rene', 'raymond', 'bram', 'remy', 'koen', 'bart' ];
   privates.pickAvatar = function pickAvatar(currentItem) {
     var elem = $(this)
       , currentClass = elem.attr( 'class' ).replace( 'avatar left ', '' )
@@ -116,7 +116,7 @@ var App = (function(window, body, privates, undefined) {
   icons = [ 'check-empty', 'refresh', 'group', 'check', 'ban-circle', 'time' ];
   colors = [ 'white', 'orange', 'blue', 'green', 'red', 'gray' ];
   privates.pickIcon = function pickIcon(currentItem) {
-    var elem = $(this).find( 'span' ) 
+    var elem = $(this).find( 'span' )
       , currentClass = elem.attr( 'class' ).substr(5)
       , picker = function(elem, list, index){
           // Update localStorage
